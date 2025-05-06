@@ -1,11 +1,18 @@
-import {GeoCity, CityInfo, CurrentWeather, ForecastResponse, Geoname, OverpassElement} from "../types/api-types";
+import {
+  GeoCity,
+  CurrentWeather,
+  ForecastResponse,
+  Geoname,
+  WeatherData,
+  CityItem
+} from "../types/api-types";
 import axios from "axios";
 import { OPEN_WEATHER_API_KEY as API } from "@env";
 import { Region } from "react-native-maps";
 
 export const getCitiesFromGeonames = async (
   region: Region
-): Promise<GeoCity[]> => {
+): Promise<GeoCity[] | null> => {
   const { latitude, longitude, latitudeDelta, longitudeDelta } = region;
 
   const north = latitude + latitudeDelta / 2;
@@ -33,6 +40,9 @@ export const getCitiesFromGeonames = async (
       },
       params: params
     });
+    if (!response.data.geonames) {
+      return null;
+    }
     return response.data.geonames.map((city: any) => ({
       name: city.name,
       lat: parseFloat(city.lat),
@@ -45,64 +55,24 @@ export const getCitiesFromGeonames = async (
   }
 };
 
-export const getCitiesFromRegion = async (
-  region: Region
-): Promise<CityInfo[]> => {
-  const { latitude, longitude, latitudeDelta, longitudeDelta } = region;
-
-  const minLat = latitude - latitudeDelta / 2;
-  const maxLat = latitude + latitudeDelta / 2;
-  const minLon = longitude - longitudeDelta / 2;
-  const maxLon = longitude + longitudeDelta / 2;
-
-  const query = `
-    [out:json];
-    (
-      node["place"~"city"]["population"](${minLat},${minLon},${maxLat},${maxLon});
-    );
-    out;
-  `;
-
-  try {
-    const response = await axios.post(
-      "https://overpass-api.de/api/interpreter",
-      new URLSearchParams({ data: query }).toString(),
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      }
-    );
-
-    const elements: OverpassElement[] = response.data.elements;
-    const topCities = elements
-      .filter((el) => {
-        const pop = parseInt(el.tags?.population || "");
-        return el.tags?.name && !isNaN(pop) && pop > 10000;
-      })
-      .sort((a, b) => {
-        const popA = parseInt(a.tags?.population || "0");
-        const popB = parseInt(b.tags?.population || "0");
-        return popB - popA;
-      })
-      .slice(0, 10)
-      .map((el) => ({
-        city: el.tags!.name!,
-        latitude: el.lat,
-        longitude: el.lon
-      }));
-    console.log("Города в регионе:", elements);
-
-    return topCities;
-  } catch (error) {
-    console.error("Ошибка при получении городов:", error);
-    return [];
+export const fetchCitiesByName = async (
+  cityName: string
+): Promise<CityItem[]> => {
+  const response = await fetch(
+    `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
+      cityName
+    )}&limit=10&appid=${API}`
+  );
+  if (!response.ok) {
+    throw new Error("Ошибка при поиске городов");
   }
+  return await response.json();
 };
+
 export const fetchWeatherByCoordinates = async (
   lat: number,
   lon: number
-): Promise<CurrentWeather> => {
+): Promise<WeatherData> => {
   try {
     const response = await axios.get(
       "https://api.openweathermap.org/data/2.5/weather",
@@ -121,7 +91,24 @@ export const fetchWeatherByCoordinates = async (
     throw new Error("Could not get weather data at the coordinates");
   }
 };
-
+export const getForecast = async (lat: number, lon: number) => {
+  try {
+    const result = await axios.get(
+      `https://api.openweathermap.org/data/2.5/forecast`,
+      {
+        params: {
+          lat: lat,
+          lon: lon,
+          units: "metric",
+          appid: API
+        }
+      }
+    );
+    return result.data
+  } catch (e) {
+    console.error(e);
+  }
+};
 export const fetchWeatherByCity = async (
   city: string
 ): Promise<ForecastResponse> => {

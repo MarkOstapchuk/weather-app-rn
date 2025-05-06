@@ -16,6 +16,7 @@ namespace facebook::react {
 
 void rnscreens_registerComponentDescriptorsFromCodegen(
   std::shared_ptr<const ComponentDescriptorProviderRegistry> registry) {
+registry->add(concreteComponentDescriptorProvider<RNSFullWindowOverlayComponentDescriptor>());
 registry->add(concreteComponentDescriptorProvider<RNSScreenContainerComponentDescriptor>());
 registry->add(concreteComponentDescriptorProvider<RNSScreenContentWrapperComponentDescriptor>());
 registry->add(concreteComponentDescriptorProvider<RNSScreenFooterComponentDescriptor>());

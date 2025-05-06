@@ -6,29 +6,39 @@ import { SearchScreen } from "../screen/Search/SearchScreen";
 import Icon from "react-native-vector-icons/Ionicons";
 import { AppColors } from "../constants/Colors";
 import { RootTabParamList } from "../types/navigation-types";
+import MainStack from "./MainStack.tsx";
+import FeaturesStack from "./FeaturesStack.tsx";
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
-export default function BottomTabsNavigator(): React.ReactNode {
+export default function BottomTabsNavigator() {
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
-            return (
-              <Icon
-                name={route.name === "Map" ? "map" : "search"}
-                size={size}
-                color={color}
-              />
-            );
+            let iconName = "";
+
+            if (route.name === "Main") {
+              iconName = "home";
+            } else if (route.name === "Map") {
+              iconName = "map";
+            } else if (route.name === "Search") {
+              iconName = "search";
+            } else if (route.name === "Features") {
+                iconName = "apps-outline";
+            }
+
+            return <Icon name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: AppColors.blue,
           tabBarInactiveTintColor: AppColors.gray,
           headerShown: false
         })}>
+        <Tab.Screen name="Main" component={MainStack} />
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Search" component={SearchScreen} />
+        <Tab.Screen name="Features" component={FeaturesStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );

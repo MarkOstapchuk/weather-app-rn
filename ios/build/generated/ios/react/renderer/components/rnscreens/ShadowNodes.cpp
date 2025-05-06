@@ -12,6 +12,7 @@
 
 namespace facebook::react {
 
+extern const char RNSFullWindowOverlayComponentName[] = "RNSFullWindowOverlay";
 extern const char RNSScreenContainerComponentName[] = "RNSScreenContainer";
 extern const char RNSScreenContentWrapperComponentName[] = "RNSScreenContentWrapper";
 extern const char RNSScreenFooterComponentName[] = "RNSScreenFooter";

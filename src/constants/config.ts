@@ -1,1 +1,0 @@
-export const GEODB_HOST = 'wft-geo-db.p.rapidapi.com';
