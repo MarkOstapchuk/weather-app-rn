@@ -18,6 +18,17 @@
 
 namespace facebook::react {
 
+JSI_EXPORT extern const char RNSFullWindowOverlayComponentName[];
+
+/*
+ * `ShadowNode` for <RNSFullWindowOverlay> component.
+ */
+using RNSFullWindowOverlayShadowNode = ConcreteViewShadowNode<
+    RNSFullWindowOverlayComponentName,
+    RNSFullWindowOverlayProps,
+    RNSFullWindowOverlayEventEmitter,
+    RNSFullWindowOverlayState>;
+
 JSI_EXPORT extern const char RNSScreenContainerComponentName[];
 
 /*

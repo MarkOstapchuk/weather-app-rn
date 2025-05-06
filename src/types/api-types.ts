@@ -26,10 +26,44 @@ export interface Clouds {
   all: number;
 }
 
+export type WeatherData = {
+  name: string;
+  coord: {
+    lat: number;
+    lon: number;
+  }
+  weather: Weather[];
+  main: {
+    temp: number;
+    feels_like: number;
+    humidity: number;
+    pressure: number;
+  };
+  wind: {
+    speed: number;
+  };
+  clouds: {
+    all: number;
+  };
+  sys: {
+    country: string;
+    sunrise: number;
+    sunset: number;
+  };
+  visibility: number;
+  dt: number;
+};
+
 export interface Rain {
   "3h": number;
 }
-
+export type CityItem = {
+  name: string;
+  country: string;
+  state?: string;
+  lat: number;
+  lon: number;
+};
 export interface City {
   id: number;
   name: string;
@@ -104,23 +138,11 @@ export interface Geoname {
   population: Number;
   fcode: String;
 }
-
-export type OverpassElement = {
-  lat: number;
-  lon: number;
-  tags?: {
-    name?: string;
-    population?: string;
-  };
-};
-export type CityInfo = {
-  city: string;
-  latitude: number;
-  longitude: number;
-};
 export type GeoCity = {
   name: string;
   lat: number;
   lng: number;
   population: number;
 };
+
+export type HoroscopeItem = Record<string, string>

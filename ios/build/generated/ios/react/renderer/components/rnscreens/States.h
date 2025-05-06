@@ -14,6 +14,18 @@
 
 namespace facebook::react {
 
+class RNSFullWindowOverlayState {
+public:
+  RNSFullWindowOverlayState() = default;
+
+#ifdef ANDROID
+  RNSFullWindowOverlayState(RNSFullWindowOverlayState const &previousState, folly::dynamic data){};
+  folly::dynamic getDynamic() const {
+    return {};
+  };
+#endif
+};
+
 class RNSScreenContainerState {
 public:
   RNSScreenContainerState() = default;

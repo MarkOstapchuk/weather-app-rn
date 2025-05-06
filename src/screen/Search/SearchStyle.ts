@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    padding: 15,
+    gap: 20,
     width: "100%"
   },
   inputContainer: {
@@ -29,15 +31,13 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 16,
-    color: AppColors.black
-  },
-  searchButton: {
-    padding: 16,
-    borderColor: AppColors.mediumGray,
-    borderWidth: 2,
-    borderRadius: 8
+    color: AppColors.black,
+    borderBottomColor: AppColors.blue,
+    borderBottomWidth: 1,
+    flex: 1,
+    paddingBottom: 5
   },
   flatList: {
     marginBottom: 35
-  }
+  },
 });

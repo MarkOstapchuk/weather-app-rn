@@ -3,6 +3,31 @@
   "reactNativePath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native",
   "reactNativeVersion": "0.76",
   "dependencies": {
+    "@react-native-async-storage/async-storage": {
+      "root": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/@react-native-async-storage/async-storage",
+      "name": "@react-native-async-storage/async-storage",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/@react-native-async-storage/async-storage/RNCAsyncStorage.podspec",
+          "version": "2.1.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/@react-native-async-storage/async-storage/android",
+          "packageImportPath": "import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;",
+          "packageInstance": "new AsyncStoragePackage()",
+          "buildTypes": [],
+          "libraryName": "rnasyncstorage",
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
     "@react-native-community/geolocation": {
       "root": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/@react-native-community/geolocation",
       "name": "@react-native-community/geolocation",
@@ -58,7 +83,7 @@
       "platforms": {
         "ios": {
           "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-gesture-handler/RNGestureHandler.podspec",
-          "version": "2.25.0",
+          "version": "2.22.0",
           "configurations": [],
           "scriptPhases": []
         },
@@ -73,6 +98,30 @@
             "RNGestureHandlerRootViewComponentDescriptor"
           ],
           "cmakeListsPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-linear-gradient": {
+      "root": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-linear-gradient",
+      "name": "react-native-linear-gradient",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-linear-gradient/BVLinearGradient.podspec",
+          "version": "2.8.3",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-linear-gradient/android",
+          "packageImportPath": "import com.BV.LinearGradient.LinearGradientPackage;",
+          "packageInstance": "new LinearGradientPackage()",
+          "buildTypes": [],
+          "componentDescriptors": [],
+          "cmakeListsPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-linear-gradient/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -110,7 +159,7 @@
       "platforms": {
         "ios": {
           "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-reanimated/RNReanimated.podspec",
-          "version": "3.17.2",
+          "version": "3.16.6",
           "configurations": [],
           "scriptPhases": []
         },
@@ -135,7 +184,7 @@
       "platforms": {
         "ios": {
           "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec",
-          "version": "5.3.0",
+          "version": "5.1.0",
           "configurations": [],
           "scriptPhases": []
         },
@@ -163,7 +212,7 @@
       "platforms": {
         "ios": {
           "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-screens/RNScreens.podspec",
-          "version": "4.10.0",
+          "version": "4.5.0",
           "configurations": [],
           "scriptPhases": []
         },
@@ -187,6 +236,61 @@
             "RNSModalScreenComponentDescriptor"
           ],
           "cmakeListsPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
+    "react-native-svg": {
+      "root": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-svg",
+      "name": "react-native-svg",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-svg/RNSVG.podspec",
+          "version": "15.11.2",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-svg/android",
+          "packageImportPath": "import com.horcrux.svg.SvgPackage;",
+          "packageInstance": "new SvgPackage()",
+          "buildTypes": [],
+          "libraryName": "rnsvg",
+          "componentDescriptors": [
+            "RNSVGCircleComponentDescriptor",
+            "RNSVGClipPathComponentDescriptor",
+            "RNSVGDefsComponentDescriptor",
+            "RNSVGFeBlendComponentDescriptor",
+            "RNSVGFeColorMatrixComponentDescriptor",
+            "RNSVGFeCompositeComponentDescriptor",
+            "RNSVGFeFloodComponentDescriptor",
+            "RNSVGFeGaussianBlurComponentDescriptor",
+            "RNSVGFeMergeComponentDescriptor",
+            "RNSVGFeOffsetComponentDescriptor",
+            "RNSVGFilterComponentDescriptor",
+            "RNSVGEllipseComponentDescriptor",
+            "RNSVGForeignObjectComponentDescriptor",
+            "RNSVGGroupComponentDescriptor",
+            "RNSVGImageComponentDescriptor",
+            "RNSVGLinearGradientComponentDescriptor",
+            "RNSVGLineComponentDescriptor",
+            "RNSVGMarkerComponentDescriptor",
+            "RNSVGMaskComponentDescriptor",
+            "RNSVGPathComponentDescriptor",
+            "RNSVGPatternComponentDescriptor",
+            "RNSVGRadialGradientComponentDescriptor",
+            "RNSVGRectComponentDescriptor",
+            "RNSVGSvgViewAndroidComponentDescriptor",
+            "RNSVGSymbolComponentDescriptor",
+            "RNSVGTextComponentDescriptor",
+            "RNSVGTextPathComponentDescriptor",
+            "RNSVGTSpanComponentDescriptor",
+            "RNSVGUseComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/user/WebstormProjects/weather-mobile-app/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,

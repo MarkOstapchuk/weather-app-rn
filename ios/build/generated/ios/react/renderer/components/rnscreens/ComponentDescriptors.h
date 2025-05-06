@@ -16,6 +16,7 @@
 
 namespace facebook::react {
 
+using RNSFullWindowOverlayComponentDescriptor = ConcreteComponentDescriptor<RNSFullWindowOverlayShadowNode>;
 using RNSScreenContainerComponentDescriptor = ConcreteComponentDescriptor<RNSScreenContainerShadowNode>;
 using RNSScreenContentWrapperComponentDescriptor = ConcreteComponentDescriptor<RNSScreenContentWrapperShadowNode>;
 using RNSScreenFooterComponentDescriptor = ConcreteComponentDescriptor<RNSScreenFooterShadowNode>;
